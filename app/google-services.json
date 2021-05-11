@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073480703571",
+    "project_id": "medical-history-recorder",
+    "storage_bucket": "medical-history-recorder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073480703571:android:e76caa5857f1256f8530a6",
+        "android_client_info": {
+          "package_name": "com.example.healthrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073480703571-jtfagf6qng723h30vjcofqrgid8rliht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADyh8AglQTdABTqV44q5kYb13KR2p8A2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073480703571-jtfagf6qng723h30vjcofqrgid8rliht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
