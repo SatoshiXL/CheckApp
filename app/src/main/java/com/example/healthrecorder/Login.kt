@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.healthrecorder.databinding.ActivityLoginBinding
+import com.example.healthrecorder.firestore.FirestoreClass
+import com.example.healthrecorder.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -37,25 +40,33 @@ class Login : AppCompatActivity() {
                 }
                 else -> {
                     val email: String = binding.loginEmail.text.toString().trim() { it <= ' ' }
-                    val password: String = binding.loginPassword.text.toString().trim() { it <= ' ' }
+                    val password: String =
+                        binding.loginPassword.text.toString().trim() { it <= ' ' }
 
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
 
-                                    val firebaseUser: FirebaseUser = task!!.result!!.user!!
-                                    val intent = Intent(this, Mainmenu::class.java)
-                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                    intent.putExtra("user_id", firebaseUser.uid)
-                                    intent.putExtra("email_id", email)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
-                                    Toast.makeText(this, task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
-                                }
+                                FirestoreClass().getUserDetails(this@Login)
 
-
+                                val firebaseUser: FirebaseUser = task!!.result!!.user!!
+                                val intent = Intent(this, Mainmenu::class.java)
+                                intent.flags =
+                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                intent.putExtra("user_id", firebaseUser.uid)
+                                intent.putExtra("email_id", email)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    task.exception!!.message.toString(),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
+
+
+                        }
                 }
 
             }
@@ -64,7 +75,17 @@ class Login : AppCompatActivity() {
         }
     }
 
+    fun userLoggedInSuccess(user: User){
+
+        Log.i("First Name", user.firstName)
+        Log.i("Last Name", user.lastName)
+        Log.i("Email", user.email)
+        finish()
+    }
+
+
 }
+
 
 
 

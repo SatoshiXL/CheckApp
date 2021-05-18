@@ -18,8 +18,7 @@ class Mainmenu : AppCompatActivity() {
         val userID = intent.getStringExtra("user_id")
         val emailID = intent.getStringExtra("email_id")
 
-        binding.emailId.text = "User ID: $userID"
-        binding.userId.text = "Email ID: $emailID"
+
 
         binding.LogoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -27,6 +26,8 @@ class Mainmenu : AppCompatActivity() {
             startActivity(Intent(this, Login::class.java))
             finish()
         }
+
+        binding.ClinicVisitButton.setOnClickListener { startActivity(Intent(this, ClinicVisitMain::class.java)) }
 
     }
 }

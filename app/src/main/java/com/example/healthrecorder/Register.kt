@@ -7,6 +7,8 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.healthrecorder.databinding.ActivityRegisterBinding
+import com.example.healthrecorder.firestore.FirestoreClass
+import com.example.healthrecorder.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -37,6 +39,16 @@ class Register : AppCompatActivity() {
                                 if (task.isSuccessful) {
 
                                     val firebaseUser: FirebaseUser = task!!.result!!.user!!
+
+                                    val user = User(
+                                        firebaseUser.uid,
+                                        binding.registerFirstName.text.toString().trim() { it <= ' '},
+                                        binding.registerLastName.text.toString().trim() { it <= ' '},
+                                        binding.registerEmail.text.toString().trim() { it <= ' '},
+
+                                    )
+
+                                    FirestoreClass().registerUser(this, user)
 
                                     Toast.makeText(this, "You Registered Successfully", Toast.LENGTH_SHORT).show()
 
