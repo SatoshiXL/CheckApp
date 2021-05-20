@@ -1,10 +1,13 @@
 package com.example.healthrecorder.fragment.list
 
+import android.app.AlertDialog
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthrecorder.R
@@ -21,7 +24,7 @@ import kotlinx.android.synthetic.main.custom_row_clinic_visit.view.*
 private val currentUser = FirebaseAuth.getInstance().currentUser
 private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>) :
+class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>, val context: Context) :
         FirestoreRecyclerAdapter<ClinicVisit, ListClinicVisitAdapter.ClinicVisitVH>(options) {
 
 
@@ -40,16 +43,17 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>) :
         holder.date.text = model.date
         holder.time.text = model.time
         holder.itemView.delete_icon.setOnClickListener {
-            deleteData(model.id.toString())
+            deleteUser(model.id.toString(), model.title.toString())
+
+
         }
 
         holder.itemView.row.setOnClickListener {
 
             val id = model.id.toString()
-            Log.i("this id","is $id")
+            Log.i("this id", "is $id")
             val action = ListClinicVisitDirections.actionListClinicVisitToEditClinicVisit("$id")
             holder.itemView.findNavController().navigate(action)
-
 
 
         }
@@ -71,5 +75,31 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>) :
         db.collection("users").document(currentUser.uid).collection("Clinic Visit")
                 .document("$id").delete()
     }
+
+
+    private fun deleteUser(id: String, title: String) {
+        context.apply {
+            val builder = AlertDialog.Builder(this)
+            builder.setPositiveButton("Yes") { _, _ ->
+
+
+                deleteData(id)
+                Toast.makeText(
+                        context,
+                        "Successfully removed $title",
+                        Toast.LENGTH_SHORT
+                ).show()
+
+            }
+            builder.setNegativeButton("No") { _, _ -> }
+            builder.setTitle("Delete ${title}?")
+            builder.setMessage(
+                    "Are you sure you want to delete $title?"
+            )
+            builder.create().show()
+        }
+    }
+
+
 }
 

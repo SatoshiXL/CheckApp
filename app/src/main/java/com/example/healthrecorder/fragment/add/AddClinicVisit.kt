@@ -117,3 +117,7 @@ class AddClinicVisit : Fragment() {
 
 fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 
+
+
+
+

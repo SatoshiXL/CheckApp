@@ -47,7 +47,7 @@ class ListClinicVisit : Fragment() {
                     .setQuery(query, ClinicVisit::class.java)
                     .build()
 
-            listClinicVisitAdapter = ListClinicVisitAdapter(firestoreRecyclerOptions);
+            listClinicVisitAdapter = ListClinicVisitAdapter(firestoreRecyclerOptions,context);
 
             recyclerView!!.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = listClinicVisitAdapter

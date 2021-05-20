@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="exampleToast">
+        <item name="stColorBackground">#8FCF9D</item>
+        <item name="stTextColor">#000</item>
+        <item name="stLength">LONG</item>
+        <item name="stRadius">50dp</item>
+    </style>
+
+</resources>
