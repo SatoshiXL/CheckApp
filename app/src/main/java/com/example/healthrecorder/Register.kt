@@ -24,6 +24,8 @@ class Register : AppCompatActivity() {
         supportActionBar?.hide()
 
 
+
+
         binding.SignUpButton.setOnClickListener {
             when {
                 TextUtils.isEmpty(binding.registerEmail.text.toString().trim() { it <= ' ' }) -> {
@@ -74,11 +76,7 @@ class Register : AppCompatActivity() {
                                         val firebaseUser: FirebaseUser = task!!.result!!.user!!
 
                                         val user = User(
-                                                firebaseUser.uid,
-                                                binding.registerFirstName.text.toString()
-                                                        .trim() { it <= ' ' },
-                                                binding.registerLastName.text.toString()
-                                                        .trim() { it <= ' ' },
+                                                firebaseUser.uid,"","",
                                                 binding.registerEmail.text.toString().trim() { it <= ' ' }
                                         )
 

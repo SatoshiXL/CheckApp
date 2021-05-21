@@ -17,7 +17,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
+            android:hint="Medicine Name"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:endIconMode="clear_text"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_title"
+                android:id="@+id/add_medicine_Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"></com.google.android.material.textfield.TextInputEditText>
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Doctors Name"
+            android:hint="Medicine Description"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:endIconMode="clear_text"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_doctor_name"
+                android:id="@+id/add_medicine_Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"></com.google.android.material.textfield.TextInputEditText>
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Visit Type"
+            android:hint="Usage Instruction"
             android:maxLength="20"
             app:counterEnabled="true"
             app:counterMaxLength="20"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_visit_type"
+                android:id="@+id/add_usage_instruction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="20"></com.google.android.material.textfield.TextInputEditText>
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:hint="Note"
+            android:hint="Dosage"
             app:counterEnabled="true"
             app:counterMaxLength="300"
             app:endIconMode="clear_text"
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_note"
+                android:id="@+id/add_dosage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -104,49 +104,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/date_input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:hint="dd/mm/yr"
-            app:endIconDrawable="@drawable/ic_baseline_calendar_today_24"
-            app:endIconMode="custom"
-            app:layout_constraintEnd_toStartOf="@+id/time_input"
-            app:layout_constraintHorizontal_bias="0.08"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textInputLayout4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/time_input"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Time"
-            app:endIconDrawable="@drawable/ic_baseline_access_time_24"
-            app:endIconMode="custom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/date_input_layout"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_time"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/add_submit_illness_history"
@@ -159,7 +116,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/date_input_layout" />
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

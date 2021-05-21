@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/medication_nav"
+    app:startDestination="@id/listMedication">
+
+    <fragment
+        android:id="@+id/listMedication"
+        android:name="com.example.healthrecorder.fragment.list.ListMedication"
+        android:label="fragment_list_medication"
+        tools:layout="@layout/fragment_list_medication" >
+        <action
+            android:id="@+id/action_listMedication_to_edit_Medications"
+            app:destination="@id/edit_Medications" />
+        <action
+            android:id="@+id/action_listMedication_to_addMedication"
+            app:destination="@id/addMedication" />
+    </fragment>
+    <fragment
+        android:id="@+id/edit_Medications"
+        android:name="com.example.healthrecorder.fragment.edit.Edit_Medications"
+        android:label="fragment_edit_medications"
+        tools:layout="@layout/fragment_edit_medications" >
+        <action
+            android:id="@+id/action_edit_Medications_to_listMedication"
+            app:destination="@id/listMedication" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMedication"
+        android:name="com.example.healthrecorder.fragment.add.AddMedication"
+        android:label="AddMedication" >
+        <action
+            android:id="@+id/action_addMedication_to_listMedication"
+            app:destination="@id/listMedication" />
+    </fragment>
+</navigation>

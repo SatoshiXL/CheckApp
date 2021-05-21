@@ -35,16 +35,16 @@ class MainMenu : AppCompatActivity() {
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
         val currentUser = FirebaseAuth.getInstance().currentUser
         db.collection("users").document(currentUser.uid).get()
-                .addOnSuccessListener { documentSnapShot ->
-                    val user = documentSnapShot.toObject<User>()
-                    val name = user?.firstName.toString()
-                    textView5.text = user?.firstName.toString().capitalize()
-                    textView6.text = user?.lastName.toString().capitalize()
-                    textView7.text = user?.email.toString()
-                    val phone = user?.mobile.toString()
-                    phoneNumber.text = "+63-$phone"
-                    GlideLoader(this).loadUserPicture(user!!.image, iv_user_image)
-                }
+            .addOnSuccessListener { documentSnapShot ->
+                val user = documentSnapShot.toObject<User>()
+                val name = user?.firstName.toString()
+                textView5.text = user?.firstName.toString().capitalize()
+                textView6.text = user?.lastName.toString().capitalize()
+                textView7.text = user?.email.toString()
+                val phone = user?.mobile.toString()
+                phoneNumber.text = "+63-$phone"
+                GlideLoader(this).loadUserPicture(user!!.image, iv_user_image)
+            }
 
         logout_button.setOnClickListener {
             val builder = AlertDialog.Builder(this)
@@ -60,32 +60,46 @@ class MainMenu : AppCompatActivity() {
             builder.setNegativeButton("No") { _, _ -> }
             builder.setTitle("Sign Out")
             builder.setMessage(
-                    "Are you sure you want to Sign Out?"
+                "Are you sure you want to Sign Out?"
             )
             builder.create().show()
         }
 
 
-        f5.setOnClickListener {
-            startActivity(
-                    Intent(
-                            this, UserProfile::class.java
-                    )
-            )
-        }
 
 
 
 
         f1.setOnClickListener {
             startActivity(
-                    Intent(
-                            this, ClinicVisitMain::class.java
-                    )
+                Intent(
+                    this, ClinicVisitMain::class.java
+                )
             )
         }
 
+        f2.setOnClickListener {
 
+            startActivity(Intent(this, IllnessHistoryMain::class.java))
+
+        }
+
+        f3.setOnClickListener {
+
+            startActivity(Intent(this, MedicationMain::class.java))
+        }
+
+        f4.setOnClickListener {
+            startActivity(Intent(this, AboutUs::class.java))
+        }
+
+        f5.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, UserProfile::class.java
+                )
+            )
+        }
 
 
         val userID = intent.getStringExtra("user_id")

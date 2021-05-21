@@ -3,6 +3,7 @@ package com.example.healthrecorder
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -19,24 +20,23 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
 
                 val i = Intent(this, MainMenu::class.java)
                 startActivity(i)
                 finish()
 
 
-            }, 10000)
+            }, 3000)
 
         } else {
-            Handler().postDelayed({
 
+            Handler(Looper.getMainLooper()).postDelayed({
                 val i = Intent(this, Login::class.java)
                 startActivity(i)
                 finish()
+            }, 3000)
 
-
-            }, 1000)
 
 
         }

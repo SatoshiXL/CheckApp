@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -37,6 +40,8 @@ class UserProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+
+
 
 
         val user = FirebaseAuth.getInstance().uid
@@ -175,13 +180,13 @@ class UserProfile : AppCompatActivity() {
                 false
             }
             TextUtils.isEmpty(profile_first_name.text.toString().trim { it <= ' ' }) -> {
-                StyleableToast.makeText(this, "Please enter phone number", R.style.exampleToast)
+                StyleableToast.makeText(this, "Please enter first name", R.style.exampleToast)
                         .show()
 
                 false
             }
             TextUtils.isEmpty(profile_last_name.text.toString().trim { it <= ' ' }) -> {
-                StyleableToast.makeText(this, "Please enter phone number", R.style.exampleToast)
+                StyleableToast.makeText(this, "Please enter last name", R.style.exampleToast)
                         .show()
 
                 false

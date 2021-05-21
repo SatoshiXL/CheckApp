@@ -2,9 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clinicvisit_navigation"
+    android:id="@+id/clinic_visit_navigation"
     app:startDestination="@id/listClinicVisit">
 
+    <fragment
+        android:id="@+id/listClinicVisit"
+        android:name="com.example.healthrecorder.fragment.list.ListClinicVisit"
+        android:label="fragment_list_clinic_visit"
+        tools:layout="@layout/fragment_list_clinic_visit" >
+        <action
+            android:id="@+id/action_listClinicVisit_to_editClinicVisit"
+            app:destination="@id/editClinicVisit" />
+        <action
+            android:id="@+id/action_listClinicVisit_to_addClinicVisit"
+            app:destination="@id/addClinicVisit" />
+    </fragment>
     <fragment
         android:id="@+id/addClinicVisit"
         android:name="com.example.healthrecorder.fragment.add.AddClinicVisit"
@@ -15,27 +27,15 @@
             app:destination="@id/listClinicVisit" />
     </fragment>
     <fragment
-        android:id="@+id/listClinicVisit"
-        android:name="com.example.healthrecorder.fragment.list.ListClinicVisit"
-        android:label="fragment_list__clinic__visit"
-        tools:layout="@layout/fragment_list__clinic__visit" >
-        <action
-            android:id="@+id/action_listClinicVisit_to_addClinicVisit"
-            app:destination="@id/addClinicVisit" />
-        <action
-            android:id="@+id/action_listClinicVisit_to_editClinicVisit"
-            app:destination="@id/editClinicVisit" />
-    </fragment>
-    <fragment
         android:id="@+id/editClinicVisit"
         android:name="com.example.healthrecorder.fragment.edit.EditClinicVisit"
         android:label="fragment_edit_clinic_visit"
         tools:layout="@layout/fragment_edit_clinic_visit" >
-        <action
-            android:id="@+id/action_editClinicVisit_to_listClinicVisit"
-            app:destination="@id/listClinicVisit" />
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_editClinicVisit_to_listClinicVisit"
+            app:destination="@id/listClinicVisit" />
     </fragment>
 </navigation>

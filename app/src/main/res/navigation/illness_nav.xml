@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/illness_nav"
+    app:startDestination="@id/listIllnessHistory">
+
+    <fragment
+        android:id="@+id/listIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.list.ListIllnessHistory"
+        android:label="fragment_list_illness_history"
+        tools:layout="@layout/fragment_list_illness_history" >
+        <action
+            android:id="@+id/action_listIllnessHistory_to_addIllnessHistory"
+            app:destination="@id/addIllnessHistory" />
+        <action
+            android:id="@+id/action_listIllnessHistory_to_editIllnessHistory"
+            app:destination="@id/editIllnessHistory" />
+    </fragment>
+    <fragment
+        android:id="@+id/addIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.add.AddIllnessHistory"
+        android:label="fragment_add_illness_history"
+        tools:layout="@layout/fragment_add_illness_history" >
+        <action
+            android:id="@+id/action_addIllnessHistory_to_listIllnessHistory"
+            app:destination="@id/listIllnessHistory" />
+    </fragment>
+    <fragment
+        android:id="@+id/editIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.edit.EditIllnessHistory"
+        android:label="fragment_edit_illness_history"
+        tools:layout="@layout/fragment_edit_illness_history" >
+        <action
+            android:id="@+id/action_editIllnessHistory_to_listIllnessHistory"
+            app:destination="@id/listIllnessHistory" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+</navigation>

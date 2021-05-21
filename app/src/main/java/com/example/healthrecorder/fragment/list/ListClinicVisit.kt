@@ -1,28 +1,19 @@
 package com.example.healthrecorder.fragment.list
 
-import android.app.AlertDialog
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.healthrecorder.R
 import com.example.healthrecorder.model.ClinicVisit
-import com.example.healthrecorder.utils.SwipeToDelete
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QuerySnapshot
-import kotlinx.android.synthetic.main.fragment_list__clinic__visit.*
-import kotlinx.android.synthetic.main.fragment_list__clinic__visit.view.*
+import kotlinx.android.synthetic.main.fragment_list_clinic_visit.*
+import kotlinx.android.synthetic.main.fragment_list_clinic_visit.view.*
 
 
 class ListClinicVisit : Fragment() {
@@ -39,7 +30,7 @@ class ListClinicVisit : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list__clinic__visit, container, false)
+        val view = inflater.inflate(R.layout.fragment_list_clinic_visit, container, false)
         view.apply {
             val query: Query = collectionReference
             val firestoreRecyclerOptions: FirestoreRecyclerOptions<ClinicVisit> =

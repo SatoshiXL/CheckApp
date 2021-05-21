@@ -52,7 +52,7 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>, val
 
             val id = model.id.toString()
             Log.i("this id", "is $id")
-            val action = ListClinicVisitDirections.actionListClinicVisitToEditClinicVisit("$id")
+            val action = ListClinicVisitDirections.actionListClinicVisitToEditClinicVisit(id)
             holder.itemView.findNavController().navigate(action)
 
 
