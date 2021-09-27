@@ -44,6 +44,10 @@ class Edit_Medications : Fragment() {
 
         }
 
+        view.bkbutton400.setOnClickListener {
+            findNavController().navigate(R.id.action_edit_Medications_to_listMedication)
+        }
+
 
 
 

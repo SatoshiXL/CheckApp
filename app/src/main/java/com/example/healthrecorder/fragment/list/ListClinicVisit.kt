@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import kotlinx.android.synthetic.main.fragment_list_clinic_visit.*
 import kotlinx.android.synthetic.main.fragment_list_clinic_visit.view.*
 
 
@@ -38,7 +37,7 @@ class ListClinicVisit : Fragment() {
                     .setQuery(query, ClinicVisit::class.java)
                     .build()
 
-            listClinicVisitAdapter = ListClinicVisitAdapter(firestoreRecyclerOptions,context);
+            listClinicVisitAdapter = ListClinicVisitAdapter(firestoreRecyclerOptions, context);
 
             recyclerView!!.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = listClinicVisitAdapter
@@ -47,6 +46,12 @@ class ListClinicVisit : Fragment() {
 
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listClinicVisit_to_addClinicVisit)
+
+        }
+
+        view.bkbutton400.setOnClickListener {
+
+            findNavController().navigate(R.id.action_listClinicVisit_to_mainMenu)
 
         }
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="34sp"
+    android:id="@+id/row_layout">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info_main_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="318dp"
+            android:layout_height="229dp"
+            android:layout_margin="34dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/info_doctorsname"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="10dp"
+                android:paddingStart="2dp"
+                android:text="Dr. Reed"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/info_doctorsEmail"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="4dp"
+                android:paddingStart="2dp"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_doctorsname" />
+
+            <TextView
+                android:id="@+id/info_doctorscontact"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:paddingStart="2dp"
+                android:text="Phone Number"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_doctorsEmail" />
+
+            <TextView
+                android:id="@+id/doctorsAddress"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:paddingStart="2dp"
+                android:text="Address"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_doctorscontact" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/visisblecard"
+        android:layout_width="251dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="92dp"
+        android:text="Seems like there is no information, add one now !"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

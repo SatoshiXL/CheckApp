@@ -11,14 +11,10 @@ import com.example.healthrecorder.R
 import com.example.healthrecorder.fragment.edit.destroyState
 import com.example.healthrecorder.model.IllnessHistory
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.muddzdev.styleabletoast.StyleableToast
-import kotlinx.android.synthetic.main.custom_row_illness_history.view.*
 import kotlinx.android.synthetic.main.fragment_add_illness_history.view.*
-import kotlinx.android.synthetic.main.fragment_list_illness_history.view.*
 
 
 class AddIllnessHistory : Fragment() {
@@ -35,8 +31,6 @@ class AddIllnessHistory : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_illness_history, container, false)
-
-
         view.add_submit_illness_history.setOnClickListener {
             when {
                 TextUtils.isEmpty(view.add_illnessName.text?.trim() { it <= ' ' }) ->
@@ -60,28 +54,13 @@ class AddIllnessHistory : Fragment() {
                         R.style.exampleToast
                     ).show()
 
-                TextUtils.isEmpty(view.add_illnessSymptoms.text?.trim() { it <= ' ' }) ->
-                    StyleableToast.makeText(
-                        requireContext(),
-                        "Please Enter Illness Symptoms",
-                        R.style.exampleToast
-                    ).show()
-
-                TextUtils.isEmpty(view.add_prevention.text?.trim() { it <= ' ' }) ->
-                    StyleableToast.makeText(
-                        requireContext(),
-                        "Please Enter Prevention",
-                        R.style.exampleToast
-                    ).show()
 
                 else -> {
                     val illnessHistory = IllnessHistory(
                         "",
                         view.add_illnessName.text.toString(),
                         view.add_illnessDescription.text.toString(),
-                        view.add_illnessCause.text.toString(),
-                        view.add_illnessSymptoms.text.toString(),
-                        view.add_prevention.text.toString()
+                        view.add_illnessCause.text.toString()
                     )
                     db.add(illnessHistory).addOnSuccessListener { DocumentReference ->
                         val docID = DocumentReference.id
@@ -95,6 +74,8 @@ class AddIllnessHistory : Fragment() {
                 }
             }
         }
+
+        view.bkbutton400.setOnClickListener { findNavController().navigate(R.id.action_addIllnessHistory_to_listIllnessHistory) }
 
 
         return view

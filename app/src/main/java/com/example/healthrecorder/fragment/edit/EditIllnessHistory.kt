@@ -2,7 +2,6 @@ package com.example.healthrecorder.fragment.edit
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +9,14 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.healthrecorder.R
-import com.example.healthrecorder.firestore.FirestoreClass
 import com.example.healthrecorder.fragment.add.toEditable
-import com.example.healthrecorder.model.ClinicVisit
 import com.example.healthrecorder.model.IllnessHistory
-import com.example.healthrecorder.model.Medication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import com.muddzdev.styleabletoast.StyleableToast
-import kotlinx.android.synthetic.main.fragment_edit_clinic_visit.*
 import kotlinx.android.synthetic.main.fragment_edit_illness_history.*
 import kotlinx.android.synthetic.main.fragment_edit_illness_history.view.*
-import kotlinx.android.synthetic.main.fragment_edit_medications.*
 
 
 class EditIllnessHistory : Fragment() {
@@ -48,8 +42,6 @@ class EditIllnessHistory : Fragment() {
             update_illnessName.text = illnessHistory?.illnessName?.toEditable()
             update_illnessDescription.text = illnessHistory?.illnessDescription?.toEditable()
             update_illnessCause.text = illnessHistory?.illnessCause?.toEditable()
-            update_illnessSymptoms.text = illnessHistory?.illnessSymptoms?.toEditable()
-            update_prevention.text = illnessHistory?.prevention?.toEditable()
 
         }
 
@@ -76,40 +68,32 @@ class EditIllnessHistory : Fragment() {
                         R.style.exampleToast
                     ).show()
 
-                TextUtils.isEmpty(update_illnessSymptoms.text) ->
-                    StyleableToast.makeText(
-                        requireContext(),
-                        "Please Enter Illness Symptoms",
-                        R.style.exampleToast
-                    ).show()
-
-                TextUtils.isEmpty(update_prevention.text) ->
-                    StyleableToast.makeText(
-                        requireContext(),
-                        "Please Enter Prevention",
-                        R.style.exampleToast
-                    ).show()
 
                 else -> {
 
                     val mFireStore = FirebaseFirestore.getInstance()
                     val currentUser = FirebaseAuth.getInstance().currentUser
-                    val clinicVisit = IllnessHistory(
-                        "${args.id}",
-                        update_illnessName.text.toString(),
-                        update_illnessDescription.text.toString(),
-                        update_illnessCause.text.toString(),
-                        update_illnessSymptoms.text.toString(),
-                        update_prevention.text.toString()
-                    )
                     mFireStore.collection("users").document(currentUser.uid)
-                        .collection("Illness History").document("${args.id}").set(clinicVisit)
+                        .collection("Illness History").document("${args.id}").update(
+                            "illnessName",
+                            "${update_illnessName.text.toString()}",
+                            "illnessDescription",
+                            "${update_illnessDescription.text.toString()}",
+                            "illnessCause",
+                            "${update_illnessCause.text.toString()}"
+                        )
 
-                    StyleableToast.makeText(requireContext(), "Successfully Updated", R.style.exampleToast).show()
-                    val action = EditIllnessHistoryDirections.actionEditIllnessHistoryToListIllnessHistory()
+                    StyleableToast.makeText(
+                        requireContext(),
+                        "Successfully Updated",
+                        R.style.exampleToast
+                    ).show()
+                    val action =
+                        EditIllnessHistoryDirections.actionEditIllnessHistoryToIllnessHistoryTabLayout(
+                            args.id
+                        )
                     val controller = findNavController()
                     controller.navigate(action)
-                    destroyState(controller)
 
 
                 }
@@ -117,6 +101,14 @@ class EditIllnessHistory : Fragment() {
             }
 
 
+        }
+
+        view.bkbutton400.setOnClickListener {
+            findNavController().navigate(
+                EditIllnessHistoryDirections.actionEditIllnessHistoryToIllnessHistoryTabLayout(
+                    args.id
+                )
+            )
         }
 
 

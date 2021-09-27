@@ -45,8 +45,6 @@ class ListIllnessHistoryAdapter(
         holder.illnessName.text = model.illnessName.toString()
         holder.illnessDescription.text = model.illnessDescription.toString()
         holder.illnessCause.text = model.illnessCause.toString()
-        holder.illnessSymptoms.text = model.illnessSymptoms.toString()
-        holder.prevention.text = model.prevention.toString()
 
         holder.itemView.delete_icon_illness_history.setOnClickListener {
             deleteUser(model.id.toString(), model.illnessName.toString())
@@ -56,7 +54,7 @@ class ListIllnessHistoryAdapter(
 
         holder.itemView.row_illnessHistory.setOnClickListener {
             val action =
-                ListIllnessHistoryDirections.actionListIllnessHistoryToEditIllnessHistory(model.id.toString())
+                ListIllnessHistoryDirections.actionListIllnessHistoryToIllnessHistoryTabLayout(model.id.toString())
             val controller = holder.itemView.findNavController()
             controller.navigate(action)
         }
@@ -68,8 +66,6 @@ class ListIllnessHistoryAdapter(
         val illnessName: TextView = itemView.findViewById(R.id.illness_name_row)
         val illnessDescription: TextView = itemView.findViewById(R.id.illnessDescription_row)
         val illnessCause: TextView = itemView.findViewById(R.id.illness_cause_row)
-        val illnessSymptoms: TextView = itemView.findViewById(R.id.illness_symptoms_row)
-        val prevention: TextView = itemView.findViewById(R.id.prevention_row)
 
 
     }

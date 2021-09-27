@@ -1,10 +1,12 @@
 package com.example.healthrecorder.fragment.list
 
 import android.os.Bundle
+import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthrecorder.R
@@ -17,6 +19,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_list_clinic_visit.view.*
+import kotlinx.android.synthetic.main.fragment_list_medication.*
 import kotlinx.android.synthetic.main.fragment_list_medication.view.*
 
 
@@ -36,6 +39,11 @@ class ListMedication : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list_medication, container, false)
         view.apply {
+
+            val view = findViewById<ImageView>(R.id.bkbutton400)
+
+            view.setOnClickListener { findNavController().navigate(ListMedicationDirections.actionListMedicationToMainMenu3()) }
+
             val query: Query = collectionReference
             val firestoreRecyclerOptions: FirestoreRecyclerOptions<Medication> =
                 FirestoreRecyclerOptions.Builder<Medication>()
@@ -47,13 +55,20 @@ class ListMedication : Fragment() {
             recyclerView1!!.layoutManager = LinearLayoutManager(requireContext())
             recyclerView1.adapter = listMedicationAdapter
 
+
         }
+
 
         view.floatingActionButton_medication.setOnClickListener {
             val direction = ListMedicationDirections.actionListMedicationToAddMedication()
             val controller = findNavController()
             controller.navigate(direction)
         }
+
+
+
+
+
 
 
         return view

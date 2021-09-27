@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="34sp"
+    android:id="@+id/row_layout">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/prescribe_main_view"
+        android:layout_width="0dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="34dp">
+
+            <TextView
+                android:id="@+id/medicine_name"
+                android:layout_width="0dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="10dp"
+                android:text="Medicine Name"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/medicine_prescription"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:text="Cure for Cancer"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/medicine_name" />
+
+            <TextView
+                android:id="@+id/dosage"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:text="10mg"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/medicine_prescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/visisblecard"
+        android:layout_width="251dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="92dp"
+        android:text="Seems like there is no information, add one now !"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

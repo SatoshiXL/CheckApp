@@ -9,10 +9,6 @@
         android:endColor="#98D1B1"
         android:startColor="@color/emerald"></gradient>
 
-    <stroke
-        android:width="2dp"
-        android:color="@color/teal_700"></stroke>
-
 
 
 </shape>

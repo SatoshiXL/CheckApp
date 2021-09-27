@@ -38,8 +38,6 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>, val
     override fun onBindViewHolder(holder: ClinicVisitVH, position: Int, model: ClinicVisit) {
         holder.title.text = model.title
         holder.doctorsName.text = model.doctorsName
-        holder.visitType.text = model.visitType
-        holder.note.text = model.note
         holder.date.text = model.date
         holder.time.text = model.time
         holder.itemView.delete_icon.setOnClickListener {
@@ -52,7 +50,7 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>, val
 
             val id = model.id.toString()
             Log.i("this id", "is $id")
-            val action = ListClinicVisitDirections.actionListClinicVisitToEditClinicVisit(id)
+            val action = ListClinicVisitDirections.actionListClinicVisitToClinicVisitTabLayout(id)
             holder.itemView.findNavController().navigate(action)
 
 
@@ -64,8 +62,6 @@ class ListClinicVisitAdapter(options: FirestoreRecyclerOptions<ClinicVisit>, val
     class ClinicVisitVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.title)
         val doctorsName: TextView = itemView.findViewById(R.id.doctorsName)
-        val visitType: TextView = itemView.findViewById(R.id.visitType)
-        val note: TextView = itemView.findViewById(R.id.view_note)
         val date: TextView = itemView.findViewById(R.id.view_date)
         val time: TextView = itemView.findViewById(R.id.view_time)
 

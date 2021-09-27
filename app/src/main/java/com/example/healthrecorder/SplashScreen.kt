@@ -16,6 +16,8 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+        hideSystemUI()
+
 
         supportActionBar?.hide()
         val user = FirebaseAuth.getInstance().currentUser

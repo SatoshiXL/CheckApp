@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.fragment_list_clinic_visit.view.*
+import kotlinx.android.synthetic.main.fragment_list_illness_history.*
 import kotlinx.android.synthetic.main.fragment_list_illness_history.view.*
 import kotlinx.android.synthetic.main.fragment_list_medication.view.*
 
@@ -48,13 +50,23 @@ class ListIllnessHistory : Fragment() {
             recyclerView2!!.layoutManager = LinearLayoutManager(requireContext())
             recyclerView2.adapter = listIllnessHistoryAdapter
 
+
         }
+
+
+
 
         view.floatingActionButton2.setOnClickListener {
             val direction =
                 ListIllnessHistoryDirections.actionListIllnessHistoryToAddIllnessHistory()
             val controller = findNavController()
             controller.navigate(direction)
+        }
+
+        view.bkbutton100.setOnClickListener {
+
+            findNavController().navigate(R.id.action_listIllnessHistory_to_mainMenu2)
+
         }
 
 

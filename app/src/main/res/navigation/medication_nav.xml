@@ -16,6 +16,11 @@
         <action
             android:id="@+id/action_listMedication_to_addMedication"
             app:destination="@id/addMedication" />
+        <action
+            android:id="@+id/action_listMedication_to_mainMenu3"
+            app:destination="@id/mainMenu3"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/edit_Medications"
@@ -37,4 +42,9 @@
             android:id="@+id/action_addMedication_to_listMedication"
             app:destination="@id/listMedication" />
     </fragment>
+    <activity
+        android:id="@+id/mainMenu3"
+        android:name="com.example.healthrecorder.MainMenu"
+        android:label="activity_mainmenu"
+        tools:layout="@layout/activity_mainmenu" />
 </navigation>

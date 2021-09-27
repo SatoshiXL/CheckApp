@@ -29,7 +29,7 @@ class MainMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainmenu)
 
-        supportActionBar?.hide()
+        hideSystemUI()
 
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -43,7 +43,7 @@ class MainMenu : AppCompatActivity() {
                 textView7.text = user?.email.toString()
                 val phone = user?.mobile.toString()
                 phoneNumber.text = "+63-$phone"
-                GlideLoader(this).loadUserPicture(user!!.image, iv_user_image)
+
             }
 
         logout_button.setOnClickListener {
@@ -76,21 +76,31 @@ class MainMenu : AppCompatActivity() {
                     this, ClinicVisitMain::class.java
                 )
             )
+
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
+
+
         }
 
         f2.setOnClickListener {
 
             startActivity(Intent(this, IllnessHistoryMain::class.java))
 
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
+
         }
 
         f3.setOnClickListener {
 
             startActivity(Intent(this, MedicationMain::class.java))
+
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
         }
 
         f4.setOnClickListener {
             startActivity(Intent(this, AboutUs::class.java))
+
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
         }
 
         f5.setOnClickListener {
@@ -99,6 +109,8 @@ class MainMenu : AppCompatActivity() {
                     this, UserProfile::class.java
                 )
             )
+
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
         }
 
 
