@@ -40,7 +40,7 @@
                 android:layout_height="229dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="32dp"
-                android:src="@drawable/health_recorder_application_logo_v2"
+                android:src="@drawable/checkapplogo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
             app:cardCornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:strokeColor="@color/teal_700"
+            app:strokeColor="@color/black"
             app:strokeWidth="2dp"
 
             android:outlineAmbientShadowColor="@color/black"
@@ -124,7 +124,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="300dp"
             android:background="@drawable/header_left_radius"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,28 +133,27 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
             app:layout_constraintVertical_bias="1.0">
 
-            <HorizontalScrollView
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollIndicators="left"
                 android:scrollbarSize="0dp"
                 android:scrollbarStyle="outsideOverlay"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="0dp">
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="16dp">
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <FrameLayout
                         android:id="@+id/f1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="32dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -163,7 +162,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/clinic_visit" />
+                            android:src="@drawable/consultation" />
 
 
                     </FrameLayout>
@@ -172,10 +171,10 @@
                         android:id="@+id/f2"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="32dp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/f1"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -185,123 +184,115 @@
                             android:layout_height="match_parent"
 
                             android:scaleType="fitCenter"
-                            android:src="@drawable/illness_history" />
+                            android:src="@drawable/critical" />
                     </FrameLayout>
 
                     <FrameLayout
                         android:id="@+id/f3"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/f2"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintStart_toStartOf="@+id/f1"
+                        app:layout_constraintTop_toBottomOf="@+id/f1">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/medication" />
+                            android:src="@drawable/care" />
                     </FrameLayout>
 
                     <FrameLayout
                         android:id="@+id/f4"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="32dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintEnd_toEndOf="@+id/f2"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toEndOf="@+id/f3"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toBottomOf="@+id/f2">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/meet_the_team" />
+                            android:src="@drawable/user" />
                     </FrameLayout>
 
                     <FrameLayout
                         android:id="@+id/f5"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginBottom="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/f4"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintEnd_toEndOf="@+id/f4"
+                        app:layout_constraintHorizontal_bias="0.52"
+                        app:layout_constraintStart_toStartOf="@+id/f3"
+                        app:layout_constraintTop_toBottomOf="@+id/f4">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/edit_profile" />
+                            android:src="@drawable/user_2" />
                     </FrameLayout>
 
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CLINIC VISIT"
+                        app:layout_constraintEnd_toEndOf="@+id/f1"
+                        app:layout_constraintStart_toStartOf="@+id/f1"
+                        app:layout_constraintTop_toBottomOf="@+id/f1" />
 
-                    <View
-                        android:id="@+id/divider"
-                        android:layout_width="3dp"
-                        android:layout_height="120dp"
-                        android:layout_marginStart="11dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/header_divider"
-                        android:backgroundTint="#CB4A4A4A"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/f2"
-                        app:layout_constraintStart_toEndOf="@+id/f1"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ILLNESS HISTORY"
+                        app:layout_constraintEnd_toEndOf="@+id/f2"
+                        app:layout_constraintStart_toStartOf="@+id/f2"
+                        app:layout_constraintTop_toBottomOf="@+id/f2" />
 
-                    <View
-                        android:id="@+id/divider2"
-                        android:layout_width="3dp"
-                        android:layout_height="120dp"
-                        android:layout_marginStart="11dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/header_divider"
-                        android:backgroundTint="#CB4A4A4A"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/f3"
-                        app:layout_constraintStart_toEndOf="@+id/f2"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="MEDICATION"
+                        app:layout_constraintEnd_toEndOf="@+id/f3"
+                        app:layout_constraintStart_toStartOf="@+id/f3"
+                        app:layout_constraintTop_toBottomOf="@+id/f3" />
 
-                    <View
-                        android:id="@+id/divider3"
-                        android:layout_width="3dp"
-                        android:layout_height="120dp"
-                        android:layout_marginStart="11dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/header_divider"
-                        android:backgroundTint="#CB4A4A4A"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/f4"
-                        app:layout_constraintStart_toEndOf="@+id/f3"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="ABOUT US"
+                        app:layout_constraintEnd_toEndOf="@+id/f4"
+                        app:layout_constraintStart_toStartOf="@+id/f4"
+                        app:layout_constraintTop_toBottomOf="@+id/f4" />
 
-                    <View
-                        android:id="@+id/divider4"
-                        android:layout_width="3dp"
-                        android:layout_height="120dp"
-                        android:layout_marginStart="11dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="@drawable/header_divider"
-                        android:backgroundTint="#CB4A4A4A"
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="EDIT PROFILE"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/f5"
-                        app:layout_constraintStart_toEndOf="@+id/f4"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintEnd_toEndOf="@+id/f5"
+                        app:layout_constraintStart_toStartOf="@+id/f5"
+                        app:layout_constraintTop_toBottomOf="@+id/f5" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </HorizontalScrollView>
+            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

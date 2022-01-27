@@ -36,8 +36,12 @@ class MainMenu : AppCompatActivity() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         db.collection("users").document(currentUser.uid).get()
             .addOnSuccessListener { documentSnapShot ->
+
                 val user = documentSnapShot.toObject<User>()
                 val name = user?.firstName.toString()
+                if (user != null) {
+                    GlideLoader(this).loadUserPicture(user.image, iv_user_image)
+                }
                 textView5.text = user?.firstName.toString().capitalize()
                 textView6.text = user?.lastName.toString().capitalize()
                 textView7.text = user?.email.toString()

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
-    android:background="@drawable/gradient_2">
+    android:background="@drawable/header_divider">
 
 
     <ImageView
-        android:layout_width="265dp"
-        android:layout_height="214dp"
-        android:src="@drawable/health_recorder_application_logo_v2"
+        android:layout_width="337dp"
+        android:layout_height="310dp"
+        android:src="@drawable/checkapplogo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -27,9 +27,6 @@ class Register : AppCompatActivity() {
         hideSystemUI()
 
 
-
-
-
         binding.SignUpButton.setOnClickListener {
             when {
                 TextUtils.isEmpty(binding.registerEmail.text.toString().trim() { it <= ' ' }) -> {
