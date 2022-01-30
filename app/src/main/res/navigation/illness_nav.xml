@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/illness_nav"
+    app:startDestination="@id/listIllnessHistory">
+
+    <fragment
+        android:id="@+id/listIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.list.ListIllnessHistory"
+        android:label="fragment_list_illness_history"
+        tools:layout="@layout/fragment_list_illness_history" >
+        <action
+            android:id="@+id/action_listIllnessHistory_to_addIllnessHistory"
+            app:destination="@id/addIllnessHistory"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_listIllnessHistory_to_illnessHistoryTabLayout"
+            app:destination="@id/illnessHistoryTabLayout"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_listIllnessHistory_to_mainMenu2"
+            app:destination="@id/mainMenu2"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.add.AddIllnessHistory"
+        android:label="fragment_add_illness_history"
+        tools:layout="@layout/fragment_add_illness_history" >
+        <action
+            android:id="@+id/action_addIllnessHistory_to_listIllnessHistory"
+            app:destination="@id/listIllnessHistory"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/editIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.edit.EditIllnessHistory"
+        android:label="fragment_edit_illness_history"
+        tools:layout="@layout/fragment_edit_illness_history" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editIllnessHistory_to_illnessHistoryTabLayout"
+            app:destination="@id/illnessHistoryTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/illnessHistoryTabLayout"
+        android:name="com.example.healthrecorder.fragment.list.detail.IllnessHistoryTabLayout"
+        android:label="fragment_illness_history_tab_layout"
+        tools:layout="@layout/fragment_illness_history_tab_layout" >
+        <action
+            android:id="@+id/action_illnessHistoryTabLayout_to_editIllnessHistory"
+            app:destination="@id/editIllnessHistory"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_illnessHistoryTabLayout_to_addPreventionIllnessHistory"
+            app:destination="@id/addPreventionIllnessHistory"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_illnessHistoryTabLayout_to_addSymptomsIllnessHistory"
+            app:destination="@id/addSymptomsIllnessHistory"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <argument android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_illnessHistoryTabLayout_to_listIllnessHistory"
+            app:destination="@id/listIllnessHistory"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPreventionIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.list.detail.illnesshistory.addorupdate.AddPreventionIllnessHistory"
+        android:label="fragment_add_prevention_illness_history"
+        tools:layout="@layout/fragment_add_prevention_illness_history" >
+        <action
+            android:id="@+id/action_addPreventionIllnessHistory_to_illnessHistoryTabLayout"
+            app:destination="@id/illnessHistoryTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSymptomsIllnessHistory"
+        android:name="com.example.healthrecorder.fragment.list.detail.illnesshistory.addorupdate.AddSymptomsIllnessHistory"
+        android:label="fragment_add_symptoms_illness_history"
+        tools:layout="@layout/fragment_add_symptoms_illness_history" >
+        <action
+            android:id="@+id/action_addSymptomsIllnessHistory_to_illnessHistoryTabLayout"
+            app:destination="@id/illnessHistoryTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/mainMenu2"
+        android:name="com.example.healthrecorder.MainMenu"
+        android:label="activity_mainmenu"
+        tools:layout="@layout/activity_mainmenu" />
+</navigation>

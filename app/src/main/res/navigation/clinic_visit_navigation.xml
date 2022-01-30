@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clinic_visit_navigation"
+    app:startDestination="@id/listClinicVisit">
+
+    <fragment
+        android:id="@+id/listClinicVisit"
+        android:name="com.example.healthrecorder.fragment.list.ListClinicVisit"
+        android:label="fragment_list_clinic_visit"
+        tools:layout="@layout/fragment_list_clinic_visit" >
+        <action
+            android:id="@+id/action_listClinicVisit_to_clinicVisitTabLayout"
+            app:destination="@id/clinicVisitTabLayout"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_listClinicVisit_to_addClinicVisit"
+            app:destination="@id/addClinicVisit"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_listClinicVisit_to_mainMenu"
+            app:destination="@id/mainMenu"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addClinicVisit"
+        android:name="com.example.healthrecorder.fragment.add.AddClinicVisit"
+        android:label="fragment_add_clinic_visit"
+        tools:layout="@layout/fragment_add_clinic_visit" >
+        <action
+            android:id="@+id/action_addClinicVisit_to_listClinicVisit"
+            app:destination="@id/listClinicVisit"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/editClinicVisit"
+        android:name="com.example.healthrecorder.fragment.edit.EditClinicVisit"
+        android:label="fragment_edit_clinic_visit"
+        tools:layout="@layout/fragment_edit_clinic_visit" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editClinicVisit_to_clinicVisitTabLayout"
+            app:destination="@id/clinicVisitTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/clinicVisitTabLayout"
+        android:name="com.example.healthrecorder.fragment.list.detail.ClinicVisitTabLayout"
+        android:label="fragment_clinic_visit_tab_layout"
+        tools:layout="@layout/fragment_clinic_visit_tab_layout" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_clinicVisitTabLayout_to_editClinicVisit"
+            app:destination="@id/editClinicVisit"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clinicVisitTabLayout_to_addDoctorInformation"
+            app:destination="@id/addDoctorInformation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clinicVisitTabLayout_to_addPrescribeMedicine"
+            app:destination="@id/addPrescribeMedicine"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clinicVisitTabLayout_to_addSymptomsClinicVisit"
+            app:destination="@id/addSymptomsClinicVisit"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_clinicVisitTabLayout_to_listClinicVisit"
+            app:destination="@id/listClinicVisit"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <activity
+        android:id="@+id/mainMenu"
+        android:name="com.example.healthrecorder.MainMenu"
+        android:label="activity_mainmenu"
+        tools:layout="@layout/activity_mainmenu" />
+    <fragment
+        android:id="@+id/addDoctorInformation"
+        android:name="com.example.healthrecorder.fragment.list.detail.clinicvisit.addorupdate.AddDoctorInformation"
+        android:label="fragment_add_doctor_information"
+        tools:layout="@layout/fragment_add_doctor_information" >
+        <action
+            android:id="@+id/action_addDoctorInformation_to_clinicVisitTabLayout"
+            app:destination="@id/clinicVisitTabLayout" />
+        <action
+            android:id="@+id/action_addDoctorInformation_to_clinicVisitTabLayout2"
+            app:destination="@id/clinicVisitTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left" />
+        <argument android:name="id" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPrescribeMedicine"
+        android:name="com.example.healthrecorder.fragment.list.detail.clinicvisit.addorupdate.AddPrescribeMedicine"
+        android:label="fragment_add_prescribe_medicine"
+        tools:layout="@layout/fragment_add_prescribe_medicine" >
+        <action
+            android:id="@+id/action_addPrescribeMedicine_to_clinicVisitTabLayout"
+            app:destination="@id/clinicVisitTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="false" />
+        <argument android:name="id" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSymptomsClinicVisit"
+        android:name="com.example.healthrecorder.fragment.list.detail.clinicvisit.addorupdate.AddSymptomsClinicVisit"
+        android:label="fragment_add_symptoms_clinic_visit"
+        tools:layout="@layout/fragment_add_symptoms_clinic_visit" >
+        <action
+            android:id="@+id/action_addSymptomsClinicVisit_to_clinicVisitTabLayout"
+            app:destination="@id/clinicVisitTabLayout"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
+        <argument android:name="id" />
+    </fragment>
+</navigation>
